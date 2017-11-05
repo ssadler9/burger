@@ -1,0 +1,23 @@
+<h1>Burgers</h1>
+
+<h2>Burgers to be DEVOURED</h2>
+
+<ul>
+  {{#each burgers}}
+    {{#unless devoured}}
+      {{> burgers/burger-block devoured=false}}
+    {{/unless}}
+  {{/each}}
+</ul>
+
+<h2>Burgers already DEVOURED</h2>
+
+<ul>
+  {{#each burgers}}
+    {{#if devoured}}
+      {{> burgers/burgers-block devoured=true}}
+    {{/if}}
+  {{/each}}
+</ul>
+
+<button type="submit">Eat Da Buger</button>
