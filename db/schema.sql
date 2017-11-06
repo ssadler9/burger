@@ -1,3 +1,4 @@
+-- create schema for the database
 CREATE DATABASE burgers_db;
 USE burgers_db;
 

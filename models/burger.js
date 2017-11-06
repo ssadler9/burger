@@ -1,3 +1,5 @@
+// require orm file
+// write code that use ORM functions user buger input
 var orm = require('../config/orm.js');
 
 var burger = {
@@ -6,7 +8,6 @@ var burger = {
       cb(res);
     });
   },
-  // The variables cols and vals are arrays.
   insert: function(cols, vals, cb) {
     orm.create("burgers", cols, vals, function(res) {
       cb(res);
@@ -18,3 +19,5 @@ var burger = {
     });
   }
 };
+// exports burger
+module.exports = burger;

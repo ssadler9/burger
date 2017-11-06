@@ -1,8 +1,11 @@
+// require connection
+// create functions that will manipulate data in db upon user interaction
+// functions - show all burgers, insert new burgers to table, update status of burger
 var connection = require("../config/connection.js");
 
 var orm = {
 	all: function(tableInput, cb) {
-    var queryString = "SELECT * FROM " + tableInput + ";";
+    var queryString = "SELECT * FROM burgers;";
     connection.query(queryString, function(err, result) {
       if (err) {
         throw err;
@@ -10,8 +13,8 @@ var orm = {
       cb(result);
     });
    },
-   insert: function (tableInput, cb) {
-   	var queryString = 'INSERT INTO ' + tableInput;
+   insert: function (table, cols, vals, cb) {
+   	var queryString = "INSERT INTO " + table;
 
     queryString += " (";
     queryString += cols.toString();
@@ -29,8 +32,8 @@ var orm = {
       cb(result);
     });
    },
-	update: function(tableInput, cb) {
-    var queryString = "UPDATE " + tableInput;
+	update: function(table, objColVals, condition, cb) {
+    var queryString = "UPDATE " + table;
 
     queryString += " SET ";
     queryString += objToSql(objColVals);
@@ -47,7 +50,7 @@ var orm = {
     });
   }
 };
-
+// exports orm
 module.exports = orm;
 
 
