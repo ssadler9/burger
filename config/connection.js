@@ -1,4 +1,4 @@
-// require mysql
+// require mysql  
 // create a connection the the database burgers_db
 var mysql = require("mysql");
 

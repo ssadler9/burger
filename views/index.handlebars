@@ -1,14 +1,14 @@
 <h1>Burgers</h1>
 
-<h2>Burgers to be DEVOURED</h2>
+<h2>Burgers to be DEVOURED</h2> 
 
 <ul>
   {{#each burgers}}
     {{#unless devoured}}
       <li>
-        <p><span>Burger:</span> {{this.burger_name}}</p>
+        {{id}}.{{burger_name}}
+        <button class='changeDevour' data-id="{{id}}" data-newdevour="{{devoured}}">Devour Me!!</button>
       </li>
-          {{> burgers-block devoured=false}}
     {{/unless}}
   {{/each}}
 
@@ -20,9 +20,8 @@
   {{#each burgers}}
     {{#if devoured}}
     <li>
-      <p><span>Burger:</span> {{this.burger_name}}</p>
+      {{id}}.{{this.burger_name}}</p>
     </li>
-        {{> burgers-block devoured=true}}
     {{/if}}
   {{/each}}
 </ul>

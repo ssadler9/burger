@@ -5,22 +5,32 @@ var express = require("express");
 var router = express.Router();
 var burger = require("../models/burger.js");
 
+router.get('/', function(req, res){
+	burger.all(function(data){
+		var burgerObject = {
+			burgers: data
+		};
+		console.log(burgerObject);
+		res.render('index', burgerObject);
+	});
+});
+// new burger posting
 router.post('/', function(req, res) {
-	burger.create([
-		'burger_name', 'devour'
+	burger.insert([
+		'burger_name'
 		], [
-		  req.body.burger_name, req.body.devoured
+		  req.body.burgers
 		], function(result) {
 			res.json({ id: result.insertId })
 		})
 });
-
+// update burger postings
 router.put('/:id', function(req, res){
 	var condition = 'id = ' + req.params.id;
 	console.log('condition', condition);
-
+	console.log(req.body);
 	burger.update({
-		devour: req.body.devoured
+		devoured: req.body.devoured
 	}, condition, function(result) {
 		if (result.changedRows == 0) {
 			return res.status(404).end();
