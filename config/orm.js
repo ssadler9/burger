@@ -6,6 +6,7 @@ var connection = require("../config/connection.js");
 function printQuestionMarks(num) {
   var arr = [];
 
+
   for (var i = 0; i < num; i++) {
     arr.push("?");
   }
@@ -49,6 +50,7 @@ var orm = {
       cb(result);
     });
    },
+   // took out vals
    insert: function (table, cols, vals, cb) {
    	var queryString = "INSERT INTO " + table;
 
@@ -60,11 +62,14 @@ var orm = {
     queryString += ") ";
 
     console.log(queryString);
+    console.log(vals.length);
 
     connection.query(queryString, vals, function(err, result) {
+
       if (err) {
         throw err;
       }
+      console.log(result);
       cb(result);
     });
    },
@@ -78,6 +83,7 @@ var orm = {
 
     console.log(queryString);
     connection.query(queryString, function(err, result) {
+
       if (err) {
         throw err;
       }

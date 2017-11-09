@@ -8,6 +8,7 @@ var burger = {
       cb(res);
     });
   },
+  // took out vals
   insert: function(cols, vals, cb) {
     orm.insert("burgers", cols, vals, function(res) {
       cb(res);

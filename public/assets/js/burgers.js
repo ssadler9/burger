@@ -1,4 +1,4 @@
-$ (function () {
+$ (function () { 
   $(".changeDevour").on("click", function(event) {
     var id = $(this).data("id");
     var newDevour = $(this).data("newdevour");
@@ -30,7 +30,7 @@ $ (function () {
     var newBurger = {
       burger_name: $("#burgers").val().trim(),
     };
-
+    console.log(newBurger);
     // Send the POST request.
     $.ajax("/", {
       type: "POST",
