@@ -8,7 +8,7 @@ $ (function () {
     console.log(newDevour);
     var newDevouredState = {
       devoured: newDevour
-    };
+    }; 
 
     // Send the PUT request. 
     $.ajax("/" + id, {
